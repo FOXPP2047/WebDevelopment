@@ -1,0 +1,82 @@
+div {
+  /*background-color: #f4eeff;*/
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  margin: 0px;
+  text-align: center;
+}
+
+h1 {
+  color: #66BFBF;
+  font-size: 5.625rem; /*100% = 16px --> if you want to 90px, 90 / 16 = 5.625, 100% * 5.625*/ /*1em = 16px = 100%*/
+  margin: 50px auto 0 auto;
+  font-family: 'Sacramento', cursive;
+}
+
+h2 {
+  color: #66BFBF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+h3 {
+  color: #11999E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.top-container {
+  background-color: #f4eeff;
+  position: relative;
+  padding-top: 100px;
+}
+/*
+.middle-container {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+
+.bottom-container {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+}*/
+
+.top-cloud {
+  position: absolute;
+  right: 300px;
+  top: 50px;
+}
+
+.bottom-cloud {
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+
+.skill-row {
+  width: 50%;
+  margin: 100px auto 100px auto;
+  text-align: left;
+  line-height: 2;
+}
+
+.cpp-img {
+  width: 25%;
+  float: left;
+  margin-right: 30px;
+}
+
+.web-img {
+  width: 25%;
+  float: right;
+  margin-left: 30px;
+}
+
+
+.contact-me {
+  color: #11999E;
+}
