@@ -127,3 +127,32 @@ function fibonacciGenerator (n) {
     return output;
 //Do NOT change any of the code below 👇
 }
+
+//leet code romanInteger
+let output = [];
+    for(let i = 0; i < s.length; ++i) {
+        output.push(s[i]);
+    }
+    const roman = ["I", "V", "X", "L", "C", "D", "M"];
+    const real = [1, 5, 10, 50, 100, 500, 1000];
+    let romanMap = new Map();
+    
+    for(let i = 0; i < roman.length; ++i) {
+        romanMap.set(roman[i], real[i]);    
+    }
+    
+    let num = 0;
+    for(let i = 0; i < output.length; ++i) {
+        if((i+1) != output.length) {
+            var nextNum = romanMap.get(output[i+1]);
+        } else nextNum = 0;
+            
+        let currentNum = romanMap.get(output[i]);
+        
+        if(currentNum < nextNum) {
+            num += (nextNum - currentNum);
+            ++i;
+        } else {
+            num += currentNum;
+        }
+    }
