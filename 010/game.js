@@ -58,13 +58,16 @@ function startOver() {
   gamePattern = [];
   started = false;
 }
-$(".btn").click(function() {
-  let userChosenColor = $(this).attr("id");
-  userClickedPattern.push(userChosenColor);
 
-  animatePress(userChosenColor);
-  checkAnswer(userClickedPattern.length - 1);
-  //setTimeout(nextSequence, 1000);
+$(".btn").click(function() {
+  if(started) {
+    let userChosenColor = $(this).attr("id");
+    userClickedPattern.push(userChosenColor);
+
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern.length - 1);
+    //setTimeout(nextSequence, 1000);
+  }
 });
 
 $(document).keypress(function() {
