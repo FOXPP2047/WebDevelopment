@@ -5,11 +5,13 @@ let buttonColors = ["red", "blue", "green", "yellow"];
 
 let started = false;
 let level = 0;
+let bestLevel = 0;
 
 function nextSequence() {
   userClickedPattern = [];
 
   level += 1;
+
   $("#level-title").text("Level " + level);
 
   let randomNumber = Math.floor((Math.random() * 4));
@@ -37,6 +39,10 @@ function checkAnswer(currentLevel) {
   if(gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
     console.log("pass");
     if(userClickedPattern.length === gamePattern.length) {
+      if(bestLevel < currentLevel + 1) {
+        bestLevel = currentLevel + 1;
+        $("#best-level").text("Best Level :  " + bestLevel);
+      }
       setTimeout(function() {
             nextSequence();
         }, 1000);
