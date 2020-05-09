@@ -4,4 +4,15 @@
 
 <p> <%= homeText %> </p>
 
+<% posts.forEach(function(e) { %>
+    <h1> <%= e.title %> </h1>
+    <% if(e.body.length > 100) { %>
+      <p> <%= e.body.substring(0, 100) + "..." %>
+        <a href="/posts/ <%= e.title %>">Read More</a>
+      </p>
+    <% } else { %>
+      <p> <%= e.body %> </p>
+    <% } %>
+<% }); %>
+
 <%- include("partials/footer") -%>
