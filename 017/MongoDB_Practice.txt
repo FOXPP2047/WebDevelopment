@@ -1,0 +1,41 @@
+db.products.insert(
+	{
+	_id: 3,
+	name: "Rubber",
+	price: 1.30,
+	stock: 43,
+	reviews: [
+		{
+			authorName: "Sally",
+			rating: 5,
+			review: "Best rubber ever!"
+		},
+		{
+			authorName: "John",
+			rating: 5,
+			review: "Awesome rubber!"
+		}
+	]
+	}
+)
+
+db.products.insert(
+	{
+	_id: 2,
+	name: "Pencil",
+	price: 0.8,
+	stock: 12,
+	reviews: [
+		{
+			authorName: "Yongmin Cho",
+			rating: 3,
+			review: "Fuck you"
+		},
+		{
+			authorName: "Minsu Kang",
+			rating: 1,
+			review: "Suck"
+		}
+	]
+	}
+)
