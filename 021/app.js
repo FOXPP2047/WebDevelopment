@@ -88,16 +88,28 @@ app.get("/register", function(req, res) {
 });
 
 app.get("/secrets", function(req, res) {
-  if(req.isAuthenticated()) {
-    res.render("secrets");
-  } else {
-    res.redirect("/login");
-  }
+  User.find({"secret": {$ne:null}}, function(err, foundUsers) {
+    if(err) {
+      console.log(err);
+    } else {
+      if(foundUsers) {
+        res.render("secrets", {usersWithSecrets: foundUsers});
+      }
+    }
+  });
 });
 
 app.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
+});
+
+app.get("/submit", function(req, res) {
+  if(req.isAuthenticated()) {
+    res.render("submit");
+  } else {
+    res.redirect("/login");
+  }
 });
 
 app.post("/register", function(req, res) {
@@ -150,6 +162,24 @@ app.post("/login", async (req, res) => {
   // if(result) {
   //   res.render("secrets");
   // } else console.log("Your Password is Wrong!");
+});
+
+app.post("/submit", function(req, res) {
+  const submittedSecret = req.body.secret;
+
+  User.findById(req.user.id, function(err, foundUser) {
+      if(err) {
+        console.log(err);
+      } else {
+        if(foundUser) {
+          foundUser.secret = submittedSecret;
+          foundUser.save(function() {
+            res.redirect("/secrets");
+          });
+        }
+      }
+  });
+
 });
 
 app.listen(3000, function() {
